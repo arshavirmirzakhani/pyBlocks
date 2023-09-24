@@ -1,2 +1,2 @@
 # scriptblock
-block based scriptgenerator
+block based script generator

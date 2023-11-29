@@ -1,2 +1,2 @@
-# scriptblock
-block based script generator
+# pyBlocks
+block based python code generator

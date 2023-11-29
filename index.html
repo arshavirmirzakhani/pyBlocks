@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>pyBlocks</title>
+    </head>
+        <body>
+
+          <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+            <category name="operators" colour="#5ba55b">
+              <block type="string_block" deletable="false" movable="false" editable="false">
+                <field name="input">Hello World!</field>
+              </block>
+              <block type="add_block" deletable="false" movable="false" editable="false"></block>
+              <block type="subtract_block" deletable="false" movable="false" editable="false"></block>
+            </category>
+            <category name="input/output" colour="#745ba5">
+              <block type="print_block" deletable="false" movable="false" editable="false"></block>
+            </category>
+            <category name="control" colour="#9fa55b">
+              <block type="if_block"></block>
+            </category>
+            <sep></sep>
+            <category name="Functions" colour="#5ba58c" custom="PROCEDURE"></category>
+            <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+          </xml>
+        
+          <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none"></xml>
+
+            <header>
+                <h1 id="title">pyBlocks</h1>
+                <h3 id="title">by <a href="https://github.com/arshavirmirzakhani/">arshavir mirzakhani</a></h3>
+            </header>
+
+
+            <div id="content">
+                <div id="editor" style="height: 480px; width: 50%;padding-right: 10px;"></div>
+                <code style="height: 480px; width: 50%;padding-left: 10px;"><pre id="output"></pre></code>
+            </div>
+
+            <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+            <script src="https://unpkg.com/blockly/python_compressed"></script>
+            <script src="block_def.js"></script>
+            <script src="block_gen.js"></script>
+            <script src="workspace.js"></script>
+
+        </body>
+</html>

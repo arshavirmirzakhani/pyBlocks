@@ -65,3 +65,29 @@ Blockly.Blocks['if_block'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['number_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldNumber(0), "input");
+    this.setOutput(true, "Number");
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['equal_block'] = {
+  init: function() {
+    this.appendValueInput("left")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("==");
+    this.appendValueInput("right")
+        .setCheck(null);
+    this.setOutput(true, "Boolean");
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

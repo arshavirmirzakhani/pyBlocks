@@ -13,14 +13,14 @@ python.pythonGenerator.forBlock['string_block'] = function(block, generator) {
 python.pythonGenerator.forBlock['add_block'] = function(block, generator) {
   var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
   var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
-  var code = value_left + '+' + value_right;
+  var code = value_left + ' + ' + value_right;
   return [code, python.Order.ATOMIC];
 };
 
 python.pythonGenerator.forBlock['subtract_block'] = function(block, generator) {
   var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
   var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
-  var code = value_left + '-' + value_right;
+  var code = value_left + ' - ' + value_right;
   return [code, python.Order.ATOMIC];
 };
 
@@ -29,4 +29,17 @@ python.pythonGenerator.forBlock['if_block'] = function(block, generator) {
   var statements_statement = generator.statementToCode(block, 'statement');
   var code = 'if ' + value_condition + ':\n' + statements_statement;
   return code;
+};
+
+python.pythonGenerator.forBlock['number_block'] = function(block, generator) {
+  var number_input = block.getFieldValue('input');
+  var code = number_input;
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['equal_block'] = function(block, generator) {
+  var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
+  var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
+  var code = value_left + ' == ' + value_right;
+  return [code, python.Order.ATOMIC];
 };

@@ -48,7 +48,7 @@ python.pythonGenerator.forBlock['if_else_block'] = function(block, generator) {
   var value_condition = generator.valueToCode(block, 'condition', python.Order.ATOMIC);
   var statements_statement = generator.statementToCode(block, 'statement');
   var statements_else = generator.statementToCode(block, 'else');
-  var code = 'if ' + value_condition + ':\n' + statements_statement + "\n" + "else : \n";
+  var code = 'if ' + value_condition + ':\n' + statements_statement + "\n" + "else : \n" + statements_else;
   return code;
 };
 
@@ -105,5 +105,21 @@ python.pythonGenerator.forBlock['less_than_equal_block'] = function(block, gener
   var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
   var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
   var code = value_left + ' <= ' + value_right;
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['input_block'] = function(block, generator) {
+  var text_input = block.getFieldValue('input');
+  var code = 'input(\"' + text_input +'\")\n';
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['true_block'] = function(block, generator) {
+  var code = 'True';
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['false_block'] = function(block, generator) {
+  var code = 'False';
   return [code, python.Order.ATOMIC];
 };

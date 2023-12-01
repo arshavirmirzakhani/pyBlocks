@@ -282,3 +282,37 @@ Blockly.Blocks['less_than_equal_block'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['input_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("input")
+        .appendField(new Blockly.FieldTextInput("prompt"), "input");
+    this.setOutput(true, "String");
+    this.setColour(260);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['true_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("True");
+    this.setOutput(true, "Boolean");
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['false_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("False");
+    this.setOutput(true, "Boolean");
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

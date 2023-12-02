@@ -1,16 +1,3 @@
-Blockly.Blocks['print_block'] = {
-  init: function() {
-    this.appendValueInput("value")
-        .setCheck(null)
-        .appendField("print");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(260);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
 Blockly.Blocks['string_block'] = {
   init: function() {
     this.appendDummyInput()
@@ -51,6 +38,20 @@ Blockly.Blocks['subtract_block'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['print_block'] = {
+  init: function() {
+    this.appendValueInput("value")
+        .setCheck(null)
+        .appendField("print");
+    this.setPreviousStatement(true, null);    
+    this.setNextStatement(true, null);
+    this.setColour(260);
+ this.setTooltip("");   
+ this.setHelpUrl("");
+  }
+};  
+
 
 Blockly.Blocks['if_block'] = {
   init: function() {
@@ -312,6 +313,73 @@ Blockly.Blocks['false_block'] = {
         .appendField("False");
     this.setOutput(true, "Boolean");
     this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['modulo_block'] = {
+  init: function() {
+    this.appendValueInput("left")
+        .setCheck("Number");
+    this.appendDummyInput()
+        .appendField("%");
+    this.appendValueInput("right")
+        .setCheck("Number");
+    this.setOutput(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['power_block'] = {
+  init: function() {
+    this.appendValueInput("left")
+        .setCheck("Number");
+    this.appendDummyInput()
+        .appendField("^");
+    this.appendValueInput("right")
+        .setCheck("Number");
+    this.setOutput(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['range_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("range");
+    this.appendValueInput("start")
+        .setCheck(null)
+        .appendField("begin");
+    this.appendValueInput("end")
+        .setCheck(null)
+        .appendField("end");
+    this.appendValueInput("step")
+        .setCheck(null)
+        .appendField("step");
+    this.setOutput(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['for_block'] = {
+  init: function() {
+    this.appendValueInput("value")
+        .setCheck(null)
+        .appendField("for")
+        .appendField(new Blockly.FieldVariable("index"), "variable")
+        .appendField("in");
+    this.appendStatementInput("statement")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(65);
  this.setTooltip("");
  this.setHelpUrl("");
   }

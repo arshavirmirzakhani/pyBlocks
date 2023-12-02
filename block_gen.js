@@ -123,3 +123,48 @@ python.pythonGenerator.forBlock['false_block'] = function(block, generator) {
   var code = 'False';
   return [code, python.Order.ATOMIC];
 };
+
+python.pythonGenerator.forBlock['modulo_block'] = function(block, generator) {
+  var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
+  var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
+  var code = value_left + ' % ' + value_right;
+  return [code, Blockly.python.ORDER_NONE];
+};
+
+python.pythonGenerator.forBlock['power_block'] = function(block, generator) {
+  var value_left = generator.valueToCode(block, 'left', python.Order.ATOMIC);
+  var value_right = generator.valueToCode(block, 'right', python.Order.ATOMIC);
+  var code = value_left + ' ^ ' + value_right;
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['range_block'] = function(block, generator) {
+  var value_start = generator.valueToCode(block, 'start', python.Order.ATOMIC);
+  var value_end = generator.valueToCode(block, 'end', python.Order.ATOMIC);
+  var value_step = generator.valueToCode(block, 'step', python.Order.ATOMIC);
+
+  var code = 'range(';
+  if (value_start != ''){
+    code = code + value_start;
+
+    if (value_end != ''){
+      code = code + ',' + value_end;
+
+      if (value_step != ''){
+        code = code + ',' + value_step;
+      }
+    }
+  }
+
+  code = code + ")"
+
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['for_block'] = function(block, generator) {
+  var variable_variable = generator.getVariableName(block.getFieldValue('variable'), Blockly.Variables.NAME_TYPE);
+  var value_value = generator.valueToCode(block, 'value', python.Order.ATOMIC);
+  var statements_statement = generator.statementToCode(block, 'statement');
+  var code = 'for ' + variable_variable + ' in ' + value_value + ' :\n' + statements_statement ;
+  return code;
+};

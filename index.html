@@ -20,6 +20,8 @@
               <block type="subtract_block" deletable="true" movable="true" editable="true"></block>
               <block type="multiply_block" deletable="true" movable="true" editable="true"></block>
               <block type="division_block" deletable="true" movable="true" editable="true"></block>
+              <block type="modulo_block" deletable="true" movable="true" editable="true"></block>
+              <block type="power_block" deletable="true" movable="true" editable="true"></block>
               <block type="equal_block"></block>
               <block type="not_equal_block"></block>
               <block type="greater_than_block" deletable="true" movable="true" editable="true"></block>
@@ -27,8 +29,9 @@
               <block type="less_than_block" deletable="true" movable="true" editable="true"></block>
               <block type="less_than_equal_block"></block>
               <block type="true_block" deletable="true" movable="true" editable="true"></block>
-              <block type="false_block" deletable="true" movable="true" editable="true"></block>          
-            </category>
+              <block type="false_block"></block>
+              <block type="range_block"></block>
+            </category>          
             </category>
             <category name="input/output" colour="#745ba5">
               <block type="print_block" deletable="true" movable="true" editable="true"></block>
@@ -40,6 +43,10 @@
               <block type="if_block" deletable="true" movable="true" editable="true"></block>
               <block type="if_else_block" deletable="true" movable="true" editable="true"></block>
               <block type="while_block" deletable="true" movable="true" editable="true"></block>
+              <block type="for_block" deletable="true" movable="true" editable="true">
+                <field name="variable">index</field>
+              </block>
+          
             </category>
             <sep></sep>
             <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>

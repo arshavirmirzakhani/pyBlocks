@@ -384,3 +384,83 @@ Blockly.Blocks['for_block'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['list_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("list")
+        .appendField(new Blockly.FieldTextInput("1,2,3"), "input");
+    this.setOutput(true, null);
+    this.setColour(160);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['list_append_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("append");
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("list")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(160);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['list_index_get_block'] = {
+  init: function() {
+    this.appendValueInput("input")
+        .setCheck(null)
+        .appendField("get index")
+        .appendField(new Blockly.FieldNumber(0, 0, Infinity, 1), "index")
+        .appendField("of");
+    this.setOutput(true, null);
+    this.setColour(160);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['list_index_set_block'] = {
+  init: function() {
+    this.appendValueInput("input")
+        .setCheck(null)
+        .appendField("set index")
+        .appendField(new Blockly.FieldNumber(0, 0, Infinity, 1), "index")
+        .appendField("of");
+    this.appendDummyInput()
+        .appendField("to")
+        .appendField(new Blockly.FieldTextInput("1,2,3"), "value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(160);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['list_remove_block'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("remove");
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("from");
+    this.appendValueInput("list")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(160);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

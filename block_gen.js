@@ -144,16 +144,21 @@ python.pythonGenerator.forBlock['range_block'] = function(block, generator) {
   var value_step = generator.valueToCode(block, 'step', python.Order.ATOMIC);
 
   var code = 'range(';
+  
   if (value_start != ''){
     code = code + value_start;
-
+    
     if (value_end != ''){
       code = code + ',' + value_end;
-
+      
       if (value_step != ''){
         code = code + ',' + value_step;
       }
     }
+  }
+  
+  else if (value_end != ''){
+    code = code + value_end;
   }
 
   code = code + ")"
@@ -166,5 +171,41 @@ python.pythonGenerator.forBlock['for_block'] = function(block, generator) {
   var value_value = generator.valueToCode(block, 'value', python.Order.ATOMIC);
   var statements_statement = generator.statementToCode(block, 'statement');
   var code = 'for ' + variable_variable + ' in ' + value_value + ' :\n' + statements_statement ;
+  return code;
+};
+
+python.pythonGenerator.forBlock['list_block'] = function(block, generator) {
+  var text_input = block.getFieldValue('input');
+  var code = '[' + text_input + ']';
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['list_append_block'] = function(block, generator) {
+  var value_value = generator.valueToCode(block, 'value', python.Order.ATOMIC);
+  var value_list = generator.valueToCode(block, 'list', python.Order.ATOMIC);
+  var code = value_list + '.append(' + value_value + ')\n';
+  return code;
+};
+
+python.pythonGenerator.forBlock['list_remove_block'] = function(block, generator) {
+  var value_value = generator.valueToCode(block, 'value', python.Order.ATOMIC);
+  var value_list = generator.valueToCode(block, 'list', python.Order.ATOMIC);
+  var code = value_list + '.remove(' + value_value + ')\n';
+  return code;
+};
+
+python.pythonGenerator.forBlock['list_index_get_block'] = function(block, generator) {
+  var number_index = block.getFieldValue('index');
+  var value_input = generator.valueToCode(block, 'input', python.Order.ATOMIC);
+  var code = value_input + '[' + number_index + ']';
+  return [code, python.Order.ATOMIC];
+};
+
+python.pythonGenerator.forBlock['list_index_set_block'] = function(block, generator) {
+  var number_index = block.getFieldValue('index');
+  var value_input = generator.valueToCode(block, 'input', python.Order.ATOMIC);
+  var text_value = block.getFieldValue('value');
+  // TODO: Assemble python into code variable.
+  var code = value_input + '[' + number_index + '] = ' + text_value + '\n';
   return code;
 };
